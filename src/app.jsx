@@ -5,7 +5,7 @@ import Main from './components/main/main';
 import Maker from './components/maker/maker';
 import Register from './components/Register/register';
 
-function App() {
+function App({authService}) {
   return (
     <div className="app">
       <BrowserRouter>
@@ -14,13 +14,13 @@ function App() {
             <Main/>
           </Route>
           <Route path="/login">
-            <Login/>
+            <Login authService={authService}/>
           </Route>
           <Route path="/register">
-            <Register/>
+            <Register authService={authService}/>
           </Route>
           <Route path="/maker">
-            <Maker/>
+            <Maker authService={authService}/>
           </Route>
         </Switch>
       </BrowserRouter>
