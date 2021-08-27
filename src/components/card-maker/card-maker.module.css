@@ -1,0 +1,40 @@
+.cardMaker {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.title {
+  margin: 1em .5em;
+  font-size: 1.2rem;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  padding-bottom: 2em;
+}
+
+.subTitle {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.editor {
+  width: 50%;
+  padding: 0 1em;
+  border-right: 2px dotted #cfd8dc
+}
+
+.preview {
+  width: 50%;
+  padding: 0 1em;
+}
+
+.previewList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

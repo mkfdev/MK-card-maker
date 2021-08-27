@@ -1,21 +1,27 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import styles from "./header.module.css";
 
-const Header = ({ onLogout }) => {
-  const location = useLocation();
-
-  const getUserEmail = () => {
-    return location.state.email;
+const Header = ({ onLogout, setActiveTab, userEmail }) => {
+  
+  const handleClick = id => {
+    setActiveTab(id);
   };
 
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>Card Maker</h1>
       <div className={styles.info}>
-        <span className={styles.user}>{ getUserEmail() }</span>님 로그인
-        { onLogout && <button className={styles.button} onClick={onLogout}>로그아웃</button> }
+        <h1 className={styles.title}>Card Maker</h1>
+        <div className={styles.userInfo}>
+          <span className={styles.user}>{ userEmail }</span>님 로그인
+          { onLogout && <button className={styles.button} onClick={onLogout}>로그아웃</button> }
+        </div>
       </div>
+      <nav className={styles.nav}>
+        <ul className={styles.navList}>
+          <li><button onClick={() => handleClick(0)} className={styles.navTabButton}>Card Maker</button></li>
+          <li><button onClick={() => handleClick(1)} className={styles.navTabButton}>Diary</button></li>
+        </ul>
+      </nav>
     </header>
   );
 }
