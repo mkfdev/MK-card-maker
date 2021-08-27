@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 1em 3em;
+  background: #000;
+  color: #ffca28;
+}
+
+.copyright {
+  font-size: .8rem;
+}

@@ -1,0 +1,109 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.pageName {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.loginForm {
+  max-width: 23rem;
+  margin: 1.2rem 0;
+  padding: 1.2em 1.5em;
+  border-radius: 1rem;
+  box-shadow: 10px 9px 26px -12px rgba(0,0,0,0.68);
+  background: #ffca28;
+}
+
+.field {
+  margin-bottom: 1em;
+}
+
+.fieldName {
+  display: inline-block;
+  min-width: 6rem;
+  font-size: .8rem;
+}
+
+.email,
+.password {
+  outline: 0;
+  border: 0;
+  padding: .5em .6em;
+  border-radius: 4px;
+}
+
+.errorMsg {
+  margin-bottom: 0.8em;
+  font-size: .8rem;
+  color: #ff3d00;
+}
+
+.button {
+  width: 100%;
+  padding: .5em 1em;
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  background: #000;
+  cursor: pointer;
+  color: #fff;
+  transition: all ease .3s;
+}
+
+.button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  margin-bottom: .5rem;
+  background: #ff5722;
+  border-radius: 4px;
+  transition: all ease .3s;
+}
+
+.list li:hover {
+  background: #ff8a50;
+}
+
+.provider {
+  width: 100%;
+  padding: .5rem 1rem;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+.link {
+  font-size: .8rem;
+  margin-top: .5rem;
+  text-decoration: none;
+  color: #fff;
+  transition: all ease .2s;
+}
+
+.link:hover {
+  color: #000;
+  text-decoration: underline;
+}

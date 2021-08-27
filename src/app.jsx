@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './app.css';
 import Login from './components/login/login';
 import Main from './components/main/main';
 import Maker from './components/maker/maker';
 import Register from './components/Register/register';
+import styles from './app.module.css';
 
 function App({authService}) {
   return (
-    <div className="app">
+    <div className={styles.app}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">

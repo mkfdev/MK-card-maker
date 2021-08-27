@@ -1,0 +1,10 @@
+.maker {
+  display: flex;
+  flex-direction: column;
+  height:100vh;
+}
+
+.container {
+  flex: 1 1 auto;
+  padding: 0 3rem;
+}

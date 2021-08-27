@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5em 3em;
+  background: #ffca28;
+  box-shadow: -2px 29px 27px -20px rgba(0,0,0,0.13);
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.info {
+  text-align: right;
+}
+
+.user {
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.button {
+  margin-left: .5rem;
+  padding: .4em .8em;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  font-size: .8rem;
+  border-radius: 4px;
+  background: #ffe0b2;
+}
+
+.button:hover {
+  color:#ff3d00;
+}

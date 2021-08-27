@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  background: #ffb300;
+}
+
+h1, p {
+  margin: 0;
+}

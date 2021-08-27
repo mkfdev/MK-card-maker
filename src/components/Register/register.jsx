@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import styles from "./register.module.css";
 
 const Register = ({authService}) => {
   const { register, formState: {errors}, handleSubmit } = useForm({ mode: "onChange" });
@@ -28,23 +29,25 @@ const Register = ({authService}) => {
   };
 
   return(
-    <section>
-      <h1>SignUp</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Email</label>
-        <input name="email" type="email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })}/>
-        { errors.email && <p>This email field is required</p>}
-
-        <label>Password</label>
-        <input name="password" type="password" {...register("password", {required: true, minLength:6 })}/>
-        { errors.password && errors.password.type === "required" && <p>This password field is required</p> }
-        { errors.password && errors.password.type === "minLength" && <p>Password must have at least 6 characters</p>}
-
+    <section className={styles.register}>
+      <h1 className={styles.title}>Card Maker <span className={styles.pageName}>SignUp</span></h1>
+      <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.field}>
+          <label className={styles.fieldName}>Email</label>
+          <input className={styles.email} name="email" type="email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })}/>
+          { errors.email && <p className={styles.errorMsg}>This email field is required</p>}
+        </div>
+        <div className={styles.field}>
+          <label className={styles.fieldName}>Password</label>
+          <input className={styles.password} name="password" type="password" {...register("password", {required: true, minLength:6 })}/>
+          { errors.password && errors.password.type === "required" && <p className={styles.errorMsg}>This password field is required</p> }
+          { errors.password && errors.password.type === "minLength" && <p className={styles.errorMsg}>Password must have at least 6 characters</p>}
+        </div>
         {
           errorFromSubmit &&
-          <p>{errorFromSubmit}</p>
+          <p className={styles.errorMsg}>{errorFromSubmit}</p>
         }
-        <input type="submit"/>
+        <input className={styles.button} type="submit" value="등록하기"/>
       </form>
     </section>
   );

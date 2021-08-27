@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
+import styles from "./login.module.css";
 
 const Login = ({authService}) => {
   const { register, handleSubmit } = useForm();
   const [errorFromSubmit, setErrorFromSubmit] = useState('');
   const history = useHistory();
 
-  const goToMaker = (userId) => {
+  const goToMaker = (userId, userEmail) => {
     history.push({
       pathname: '/maker',
-      state: {id: userId}
+      state: {id: userId, email: userEmail}
     })
   }
 
@@ -19,7 +20,7 @@ const Login = ({authService}) => {
     try {
       await authService
       .login(data.email, data.password)
-      .then(data => goToMaker(data.user.uid));
+      .then(data => goToMaker(data.user.uid, data.user.email));
     } catch(error) {
       setErrorFromSubmit(error.message);
     }
@@ -28,28 +29,35 @@ const Login = ({authService}) => {
   const onLoginWithProvider = event => {
     authService
       .loginProvider(event.currentTarget.textContent)
-      .then(data => goToMaker(data.user.uid));
+      .then(data => {
+        console.log(data.user.email);
+        goToMaker(data.user.uid, data.user.email)
+      });
   };
 
   return(
-    <section>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Email</label>
-        <input name="email" type="email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })}/>
-        <label>Password</label>
-        <input name="password" type="password" {...register("password", {required: true, minLength:6 })}/>
+    <section className={styles.login}>
+      <h1 className={styles.title}> Card Maker <span className={styles.pageName}>Login</span></h1>
+      <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.field}>
+          <label className={styles.fieldName}>Email</label>
+          <input  className={styles.email} name="email" type="email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })}/>
+        </div>
+        <div className={styles.field}>
+          <label className={styles.fieldName}>Password</label>
+          <input className={styles.password} name="password" type="password" {...register("password", {required: true, minLength:6 })}/>
+        </div>
         {
           errorFromSubmit &&
-          <p>{errorFromSubmit}</p>
+          <p className={styles.errorMsg}>{errorFromSubmit}</p>
         }
-        <input type="submit"/>
-        <Link style={{color:'gray', textDecoration:'none'}} to='register'>아직 아이디가 없다면...</Link>
+        <input className={styles.button} type="submit" value="로그인"/>
       </form>
-      <ul>
-        <li><button onClick={onLoginWithProvider}>Google</button></li>
-        <li><button onClick={onLoginWithProvider}>Github</button></li>
+      <ul className={styles.list}>
+        <li><button className={styles.provider} onClick={onLoginWithProvider}>Google</button></li>
+        <li><button className={styles.provider} onClick={onLoginWithProvider}>Github</button></li>
       </ul>
+      <Link className={styles.link} to='register'>아직 아이디가 없다면? 가입하기!</Link>
     </section>
   );
 }
