@@ -3,7 +3,7 @@ import styles from "./footer.module.css";
 
 const Footer = () => (
   <div className={styles.footer}>
-    <p className={styles.copyright}>Copyright 2021 by CMK</p>
+    <p className={styles.copyright}>Copyright 2021. CMK All Rights Reserved.</p>
   </div>
 );
 
