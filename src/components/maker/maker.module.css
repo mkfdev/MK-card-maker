@@ -7,4 +7,5 @@
 .container {
   flex: 1 1 auto;
   padding: 2rem 3rem;
+  min-height: 0;
 }

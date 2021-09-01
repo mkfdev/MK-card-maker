@@ -1,0 +1,8 @@
+.button {
+  flex: 1 1 50%;
+  padding: .5em;
+  background-color: #fff7ff;
+  border: 2px solid #a094b7;
+  border-left-width: 1px;
+  cursor: pointer;
+}

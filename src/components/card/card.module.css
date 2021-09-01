@@ -1,0 +1,86 @@
+.card {
+  display: flex;
+  width: 80%;
+  height: 10em;
+  background-color: #efebe9;
+  margin-bottom: 1em;
+  justify-content: center;
+  box-shadow: 16px 15px 20px -8px rgba(0,0,0,0.54);
+  border: 0;
+}
+
+.beige {
+  background-color: #d7ccc8; 
+}
+
+.lemon {
+  background-color:#fff9c4;
+}
+
+.coral {
+  background-color:#ffccbc;
+}
+
+.pink {
+  background-color:#f06292;
+}
+
+.black {
+  background-color:#000;
+}
+.black .info {
+  color: #fff;
+}
+
+.white {
+  background-color:#fff;
+  border: 1px solid #c3c3c3;
+}
+
+.lightBlue {
+  background-color:#e1f5fe;
+}
+
+.colorful {
+  background: linear-gradient(335deg, rgba(2,0,36,1) 0%, rgba(70,121,9,1) 37%, rgba(0,212,255,1) 100%);
+}
+
+.colorful .info {
+  color: #fff;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  flex-basis: 30%;
+}
+
+.img {
+  height: 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  word-wrap: break-word;
+  flex-basis: 70%;
+  padding: .5em 2em .5em .8em
+}
+
+.name {
+  font-size: 1rem;
+}
+
+.title, .company, .email, .phone {
+  font-size: .8rem;
+  margin-top: .5em;
+}
+
+.title:after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: .3em;
+  background-color: #bdb9b7;
+}

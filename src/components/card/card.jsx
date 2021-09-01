@@ -2,17 +2,21 @@ import React from "react";
 import styles from "./card.module.css";
 
 const Card = ({ card }) => {
-  const { name, title, company, email, phone, birth, theme } = card;
+  const DEFAULT_URL = "/images/default_image.png";
+  const { name, title, company, email, phone, theme, fileURL } = card;
+  const url = fileURL || DEFAULT_URL;
 
   return (
     <li className={`${styles.card} ${getTheme(theme)}`}>
-      <div className={styles.cardBox}>
-        <strong className={styles.name}>{name}</strong>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.company}>{company}</p>
-        <p className={styles.email}>{email}</p>
-        <p className={styles.phone}>{phone}</p>
-        <p className={styles.birth}>{birth}</p>
+        <div className={styles.imgContainer}>
+          <img className={styles.img} src={url} alt=""/>
+        </div>
+        <div className={styles.info}>
+          <strong className={styles.name}>{name}</strong>
+          <p className={styles.title}>{title}</p>
+          <p className={styles.company}>{company}</p>
+          <p className={styles.email}>{email}</p>
+          <p className={styles.phone}>{phone}</p>
       </div>
     </li>
   );
@@ -20,12 +24,22 @@ const Card = ({ card }) => {
 
 function getTheme(theme) {
   switch(theme) {
-    case 'black' :
-      return styles.black;
+    case 'beige' :
+      return styles.beige;
+    case 'lemon' :
+      return styles.lemon;
+    case 'coral' :
+      return styles.coral;
     case 'pink' :
       return styles.pink;
-    case 'yellow' :
-      return styles.yellow;
+    case 'black' :
+      return styles.black;
+    case 'white' :
+      return styles.white;
+    case 'lightBlue' :
+      return styles.lightBlue;
+    case 'colorful' :
+      return styles.colorful;
     default:
       throw new Error(`unknown theme: ${theme}`);
   }
